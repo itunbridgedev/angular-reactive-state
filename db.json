@@ -1,1 +1,48 @@
-{}
+{
+  "donuts": [
+    {
+      "id": "asdf01",
+      "name": "Just Chocolate",
+      "icon": "just-chocolate",
+      "price": 169,
+      "promo": "limited",
+      "description": "For the pure chocoholic."
+    },
+    {
+      "id": "asdf02",
+      "name": "Glazed Fudge",
+      "icon": "glazed-fudge",
+      "price": 149,
+      "promo": "limited",
+      "description": "Sticky perfection."
+    },
+    {
+      "id": "asdf03",
+      "name": "Caramel Swirl",
+      "icon": "caramel-swirl",
+      "price": 129,
+      "description": "Chocolate drillzed with caramel."
+    },
+    {
+      "id": "asdf04",
+      "name": "Sour Supreme",
+      "icon": "sour-supreme",
+      "price": 139,
+      "description": "For the sour advocate!"
+    },
+    {
+      "id": "asdf05",
+      "name": "Zesty Lemon",
+      "icon": "zesty-lemon",
+      "price": 129,
+      "description": "Delicious lucious lemon!"
+    },
+    {
+      "name": "Strawberry Glaze",
+      "icon": "strawberry-glaze",
+      "price": 129,
+      "description": "Yum!",
+      "id": "ylJtGmA"
+    }
+  ]
+}
