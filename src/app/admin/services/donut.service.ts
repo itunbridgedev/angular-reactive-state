@@ -15,15 +15,12 @@ import {
 
 import { Donut } from '../models/donut.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class DonutService {
   private donuts: Donut[] = [];
   constructor(private http: HttpClient) {}
 
   read() {
-    debugger;
     if (this.donuts.length) {
       return of(this.donuts);
     }
