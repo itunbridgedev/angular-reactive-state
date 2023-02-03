@@ -18,7 +18,7 @@ export const AdminRoutes: Routes = [
     data: { isEdit: false },
   },
   {
-    path: 'donuts/:id',
+    path: 'donuts/:donutId',
     loadComponent: () =>
       import('../admin/containers/donut-item/donut-item.component').then(
         (x) => x.DonutItemComponent
