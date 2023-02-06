@@ -27,8 +27,8 @@ import { DonutService } from '../../services/donut.service';
       </ng-container>
       <ng-template #nothing>
         <p>No Donuts here...</p>
-        <p></p
-      ></ng-template>
+        <p></p>
+      </ng-template>
     </div>
   `,
   styles: [`.donut-list {
@@ -41,6 +41,7 @@ export class DonutListComponent implements OnInit {
   constructor(private donutService: DonutService) {}
 
   ngOnInit(): void {
+    
     this.donutService
       .read()
       .subscribe((donuts: Donut[]) => {
