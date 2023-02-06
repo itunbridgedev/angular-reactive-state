@@ -10,20 +10,20 @@ export const getDonutsState = createSelector(
   (state: fromFeature.AdminState) => state.donuts
 );
 
-export const getDountsEntities = createSelector(
+export const getDonutsEntities = createSelector(
   getDonutsState,
   fromDounts.getDonutEntities
 );
 
 export const getSelectedDonut = createSelector(
-  getDountsEntities,
+  getDonutsEntities,
   fromRoot.getRouterState,
   (entities, router): Donut => {
     return router.state && entities[router.state.params.donutId];
   }
 );
 
-export const getAllDonuts = createSelector(getDountsEntities, (entities) => {
+export const getAllDonuts = createSelector(getDonutsEntities, (entities) => {
   return Object.keys(entities).map((id) => entities[parseInt(id, 10)]);
 });
 

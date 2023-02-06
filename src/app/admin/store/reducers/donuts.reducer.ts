@@ -1,7 +1,7 @@
 import { Donut } from '../../models/donut.model';
 import * as fromDonuts from '../actions/donuts.action';
 
-import { arrayToEntities } from '../../..//helpers/array.helpers';
+import { arrayToEntities } from '../../../helpers/array.helpers';
 
 export interface DonutState {
   entities: { [id: number]: Donut }; // { 1: { id: 1, name: "my donut", icon: "my.svg", price: 100, promo: 'new', description: 'example donut' } };

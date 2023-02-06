@@ -23,7 +23,6 @@ export class DonutService {
   constructor(private http: HttpClient) {}
 
   read() {
-    debugger;
     if (this.donuts.length) {
       return of(this.donuts);
     }
