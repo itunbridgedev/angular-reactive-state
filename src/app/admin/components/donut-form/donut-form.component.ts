@@ -5,7 +5,7 @@ import { Donut } from '../../models/donut.model';
 @Component({
   selector: 'donut-form',
   template: `
-    <form class="donut-form" #form="ngForm" *ngIf="donut; else loading">
+    <form class="donut-form" #form="ngForm" *ngIf="(donut || !isEdit); else loading">
       <label>
         <span>Name</span>
         <input
@@ -13,7 +13,7 @@ import { Donut } from '../../models/donut.model';
           name="name"
           class="input"
           required
-          [ngModel]="donut.name"
+          [ngModel]="donut?.name"
           [ngModelOptions]="{ updateOn: 'blur' }"
           #name="ngModel"
         />
@@ -29,7 +29,7 @@ import { Donut } from '../../models/donut.model';
           name="icon"
           class="input input--select"
           required
-          [ngModel]="donut.icon"
+          [ngModel]="donut?.icon"
           #icon="ngModel"
         >
           <option *ngFor="let icon of icons" [ngValue]="icon">
@@ -49,7 +49,7 @@ import { Donut } from '../../models/donut.model';
           name="price"
           class="input"
           required
-          [ngModel]="donut.price"
+          [ngModel]="donut?.price"
           #price="ngModel"
         />
         <ng-container *ngIf="price.invalid && price.touched">
@@ -66,7 +66,7 @@ import { Donut } from '../../models/donut.model';
             type="radio"
             name="promo"
             [value]="undefined"
-            [ngModel]="donut.promo"
+            [ngModel]="donut?.promo"
           />
           <span>None</span>
         </label>
@@ -76,7 +76,7 @@ import { Donut } from '../../models/donut.model';
             type="radio"
             name="promo"
             value="new"
-            [ngModel]="donut.promo"
+            [ngModel]="donut?.promo"
           />
           <span>New</span>
         </label>
@@ -86,7 +86,7 @@ import { Donut } from '../../models/donut.model';
             type="radio"
             name="promo"
             value="limited"
-            [ngModel]="donut.promo"
+            [ngModel]="donut?.promo"
           />
           <span>Limited</span>
         </label>
@@ -98,7 +98,7 @@ import { Donut } from '../../models/donut.model';
           id="description"
           class="input input--textarea"
           required
-          [ngModel]="donut.description"
+          [ngModel]="donut?.description"
           #description="ngModel"
         ></textarea>
         <ng-container *ngIf="description.invalid && description.touched">

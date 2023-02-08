@@ -24,7 +24,7 @@ export class RouterEffects {
           this.router.navigate(path, { queryParams, ...extras });
         }) 
       )
-    }
+    }, {dispatch: false}
   );
 
   navigateBack$ = createEffect(():any => {
@@ -32,12 +32,12 @@ export class RouterEffects {
         ofType(RouterActions.BACK),
         tap(() => this.location.back())
       )
-  });
+  }, {dispatch: false});
 
   navigateForward$ = createEffect(():any => {
     return this.actions$.pipe(
         ofType(RouterActions.FORWARD),
         tap(() => this.location.forward())
       )
-  });
+  }, {dispatch: false});
 }

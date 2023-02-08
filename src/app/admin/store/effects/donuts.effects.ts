@@ -86,7 +86,7 @@ export class DonutsEffects {
       ),
       map((donut) => {
         return new fromRoot.Go({
-          path: ['/products'],
+          path: ['/admin/donuts'],
         });
       })
     );

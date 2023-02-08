@@ -11,7 +11,7 @@ import { MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 // this would be done dynamically with webpack for builds
 const environment = {
@@ -45,10 +45,9 @@ export const routes: Routes = [
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers, { metaReducers }), // don't understand the metaReducers
     EffectsModule.forRoot(effects),
-    StoreRouterConnectingModule, // Not sure what this is for - research...
+    StoreRouterConnectingModule.forRoot({serializer: CustomSerializer}), // Not sure what this is for - research...
     environment.development ? StoreDevtoolsModule.instrument() : [], // Don't know what this is for
   ],
-
   bootstrap: [AppComponent]
 })
 export class AppModule {}

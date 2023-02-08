@@ -4,7 +4,7 @@ import * as fromDonuts from '../actions/donuts.action';
 import { arrayToEntities } from '../../../helpers/array.helpers';
 
 export interface DonutState {
-  entities: { [id: number]: Donut }; // { 1: { id: 1, name: "my donut", icon: "my.svg", price: 100, promo: 'new', description: 'example donut' } };
+  entities: { [id: string]: Donut }; // { asdf1: { id: asdf1, name: "my donut", icon: "my.svg", price: 100, promo: 'new', description: 'example donut' } };
   loaded: boolean;
   loading: boolean;
 }
@@ -47,6 +47,27 @@ export function reducer(
         loading: false,
       };
     }
+    case fromDonuts.UPDATE_DONUT_SUCCESS: 
+        case fromDonuts.CREATE_DONUT_SUCCESS: {
+          const donut = action.payload;
+          const entities = {
+            ...state.entities,
+            [donut.id]: donut
+          }
+          return {
+            ...state,
+            entities
+          }
+        }
+        case fromDonuts.REMOVE_DONUT_SUCCESS: {
+          const donut = action.payload;
+          // object destructuring to remove
+          const { [donut.id]: removed, ...entities } = state.entities;
+          return {
+            ...state,
+            entities
+          }
+        }
   }
   return state;
 }

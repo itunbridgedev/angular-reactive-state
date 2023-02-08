@@ -7,7 +7,9 @@ import * as fromDounts from '../reducers/donuts.reducer';
 
 export const getDonutsState = createSelector(
   fromFeature.getAdminState,
-  (state: fromFeature.AdminState) => state.donuts
+  (state: fromFeature.AdminState) => { 
+    return state.donuts 
+  }
 );
 
 export const getDonutsEntities = createSelector(
@@ -16,15 +18,15 @@ export const getDonutsEntities = createSelector(
 );
 
 export const getSelectedDonut = createSelector(
-  getDonutsEntities,
-  fromRoot.getRouterState,
-  (entities, router): Donut => {
-    return router.state && entities[router.state.params.donutId];
-  }
-);
+    getDonutsEntities,
+    fromRoot.getRouterState,
+    (entities, router): Donut => {
+      return router.state && entities[router.state.params.donutId];
+    }
+  );
 
 export const getAllDonuts = createSelector(getDonutsEntities, (entities) => {
-  return Object.keys(entities).map((id) => entities[parseInt(id, 10)]);
+  return Object.keys(entities).map((id) => entities[id]);
 });
 
 export const getDonutsLoaded = createSelector(

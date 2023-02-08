@@ -31,7 +31,6 @@ export class CustomSerializer
   serialize(routerState: RouterStateSnapshot): RouterStateUrl {
     const { url } = routerState;
     const { queryParams } = routerState.root;
-
     let state: ActivatedRouteSnapshot = routerState.root;
     while(state.firstChild) {
         state = state.firstChild;
